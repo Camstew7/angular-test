@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core'
-import {ActivatedRoute} from '@angular/router'
+import {ActivatedRoute, Router} from '@angular/router'
 
 @Component ({
   selector: 'data-list',
@@ -12,7 +12,14 @@ export class DataListComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    public router: Router
   ) {}
+
+  navigateAndPassState(data, i) {
+    data.index = i
+    this.router.navigateByUrl('/viewer', {state: data })
+  }
+
 
   ngOnInit() {
     this.dataList = this.route.snapshot.data.dataList

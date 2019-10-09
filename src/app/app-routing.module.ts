@@ -2,25 +2,24 @@ import {NgModule} from '@angular/core'
 import {Routes, RouterModule} from '@angular/router'
 import {DataViewerComponent} from './data-viewer/data-viewer.component'
 import {DataListComponent} from './data-list/data-list.component'
-// import {DataEntry} from './data-entry/data-entry.component'
+import {DataEntryComponent} from './data-entry/data-entry.component'
 
 const routes: Routes = [
   {
     path: 'list',
     component: DataListComponent,
     data: {
-      dataList: [{title:'1', data: 1}, {title:'2', data: 2}, {title:'3', data: 3}]
+      dataList: [{title:'1', content: 1}, {title:'2', content: 2}, {title:'3', content: 3}]
     }
   },
   {
-    path: 'viewer/:id',
-    component: DataViewerComponent,
-    data: {}
+    path: 'viewer',
+    component: DataViewerComponent
   },
-  // {
-  //   path:'',
-  //   component: DataEntry
-  // },
+  {
+    path:'add',
+    component: DataEntryComponent
+  },
   {
     path: '',
     redirectTo: 'list',

@@ -1,5 +1,6 @@
 <div id='data-list'>
-  <div *ngFor='let data of dataList'>
-    {{data.title}}
+  <a routerLink='/add'>Add new Content</a>
+  <div *ngFor='let data of dataList, let i = index'>
+    <a (click) = 'navigateAndPassState(data, i)' >{{data.title}} </a>
   </div>
 </div>

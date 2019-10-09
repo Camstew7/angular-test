@@ -8,14 +8,14 @@ import { AppComponent } from './app.component';
 
 import {DataViewerComponent} from './data-viewer/data-viewer.component'
 import {DataListComponent} from './data-list/data-list.component'
+import {DataEntryComponent} from './data-entry/data-entry.component'
 
-console.log(DataViewerComponent)
-console.log(DataListComponent)
 @NgModule({
   declarations: [
     AppComponent,
     DataViewerComponent,
-    DataListComponent
+    DataListComponent,
+    DataEntryComponent
   ],
   imports: [
     BrowserModule,
