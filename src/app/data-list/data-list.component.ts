@@ -15,9 +15,8 @@ export class DataListComponent implements OnInit {
     public router: Router
   ) {}
 
-  navigateAndPassState(data, i) {
-    data.index = i
-    this.router.navigateByUrl('/viewer', {state: data })
+  navigateAndPassState(data) {
+    this.router.navigateByUrl(`viewer/?id=${data.id}`)
   }
 
 

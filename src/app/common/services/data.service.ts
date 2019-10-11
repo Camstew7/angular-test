@@ -4,19 +4,20 @@ import {HttpClient} from '@angular/common/http'
 import {Observable} from 'rxjs/Rx'
 import {Data} from '../models/data.model'
 
+import{environment} from '../../../environments/environment.prod'
 // make sure to install rxjs-compat to be able to use Observable.of correctly
 @Injectable()
 
 export class DataService {
 
-  DATA_API: string
+  DATA_API_URL: string = environment.DATA_API_URL
 
   constructor(
     private http: HttpClient
   ) {}
 
   getAllData() {
-    return this.http.get(`${this.DATA_API}/data`)
+    return this.http.get(`${this.DATA_API_URL}/data`)
       .pipe(map(data => new Data(data)))
       .catch((err: any) => {
         return Observable.of(null)
@@ -24,7 +25,7 @@ export class DataService {
   }
 
   getOneData(dataID) {
-    return this.http.get(`${this.DATA_API}/data/?id=${dataID}`)
+    return this.http.get(`${this.DATA_API_URL}/data/?id=${dataID}`)
       .pipe(map(data => new Data(data)))
       .catch((err: any) => {
         return Observable.of(null)
@@ -32,7 +33,7 @@ export class DataService {
   }
 
   addData(data) {
-    return this.http.post(`${this.DATA_API}/data`, {
+    return this.http.post(`${this.DATA_API_URL}/data`, {
       headers: {
         'Content-Type': 'application/json'
       },
@@ -45,7 +46,7 @@ export class DataService {
   }
 
   editData(dataID, newData) {
-    return this.http.put(`${this.DATA_API}/data/?id=${dataID}`, newData)
+    return this.http.put(`${this.DATA_API_URL}/data/?id=${dataID}`, newData)
       .catch((err) => {
         console.error(err)
         return Observable.of(null)
@@ -53,7 +54,7 @@ export class DataService {
   }
 
   deleteData(dataID) {
-    return this.http.delete(`${this.DATA_API}/data/?id=${dataID}`)
+    return this.http.delete(`${this.DATA_API_URL}/data/?id=${dataID}`)
       .catch((err) => {
         console.error(err)
         return Observable.of(null)
