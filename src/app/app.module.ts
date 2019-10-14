@@ -14,7 +14,6 @@ import {DataEntryComponent} from './data-entry/data-entry.component'
 //resolvers
 
 import {GetAllResolver} from './common/resolvers/getAll.resolver'
-import {GetOneResolver} from './common/resolvers/getOne.resolver'
 
 //service
 
@@ -33,7 +32,6 @@ import {DataService} from './common/services/data.service'
   ],
   providers: [
     GetAllResolver,
-    GetOneResolver,
     DataService
   ],
   bootstrap: [AppComponent]

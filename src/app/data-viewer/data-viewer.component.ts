@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core'
+import {Component, OnInit, Input} from '@angular/core'
 import {ActivatedRoute} from '@angular/router'
-// import state from '../stateMap.js'
+import { DataService } from '../common/services/data.service';
 
 @Component ({
   selector: 'data-viewer',
@@ -10,16 +10,30 @@ import {ActivatedRoute} from '@angular/router'
 
 export class DataViewerComponent implements OnInit {
   data: any;
-  index: any;
 
   constructor(
     private route: ActivatedRoute,
+    private dataService: DataService
   ) {}
 
+  @Input ()
+    title: any = ''
+    content: any = ''
+
+  handleDataEdit(event) {
+    event.preventDefault()
+    
+    let dataChanges = {
+      title: this.title,
+      content: this.content
+    }
+    // this.dataService.editData(dataChanges)
+
+  }
 
   ngOnInit() {
     this.data = window.history.state
-    this.index = window.history.state.index
+    console.log(this.data)
   }
 }
 

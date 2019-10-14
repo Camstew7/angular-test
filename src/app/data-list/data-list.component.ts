@@ -16,12 +16,12 @@ export class DataListComponent implements OnInit {
   ) {}
 
   navigateAndPassState(data) {
-    this.router.navigateByUrl(`viewer/?id=${data.id}`)
+    this.router.navigateByUrl(`viewer`, {state: data})
   }
 
 
   ngOnInit() {
-    this.dataList = this.route.snapshot.data.dataList
+    this.dataList = this.route.snapshot.data.data
   }
 }
 

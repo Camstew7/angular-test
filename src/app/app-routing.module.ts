@@ -4,7 +4,6 @@ import {DataViewerComponent} from './data-viewer/data-viewer.component'
 import {DataListComponent} from './data-list/data-list.component'
 import {DataEntryComponent} from './data-entry/data-entry.component'
 import {GetAllResolver} from './common/resolvers/getAll.resolver'
-import {GetOneResolver} from './common/resolvers/getOne.resolver'
 
 const routes: Routes = [
   {
@@ -15,11 +14,8 @@ const routes: Routes = [
     }
   },
   {
-    path: 'viewer/:id',
+    path: 'viewer',
     component: DataViewerComponent,
-    resolve: {
-      data: GetOneResolver
-    }
   },
   {
     path:'add',

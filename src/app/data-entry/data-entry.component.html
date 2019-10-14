@@ -1,8 +1,15 @@
 <form>
   Title:
-  <input type='text'>
+  <input [value]='title' (input)='title=$event.target.value' type='text'>
+  <button (click)= 'handleDataSubmit($event)'>Submit</button>
+  <br>
+  Type:
+  <select [value]='type' (input)="type=$event.target.value">
+    <option name='JSON'>JSON</option>
+  </select>
+
   <br>
   Content:
   <br>
-  <textarea name="content" id="content" cols="150" rows="200"></textarea>
+  <textarea [value]='content' (input)='content=$event.target.value' name="content" id="content" cols="150" rows="200"></textarea>
 </form>

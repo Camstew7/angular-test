@@ -2,13 +2,12 @@
   <a routerLink='/list'>Back to List</a>
   <form>
     <h1 >{{data.title}}</h1>
-    <input type='text'>
-    <input type='submit'>
+    <input [value] = 'title' type='text'>
+    <button (click) = 'handleDataEdit()'>Submit</button>
   </form>
   <form>
     <p>{{data.content}}</p>
-    <textarea name="content" id="content" cols="150" rows="50"></textarea>
-    <input type='submit'>
+    <textarea [value] = 'content' name="content" id="content" cols="150" rows="50"></textarea>
   </form>
 
   <br>

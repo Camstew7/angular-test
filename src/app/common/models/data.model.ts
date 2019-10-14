@@ -1,4 +1,4 @@
-export class Data {
+export class DataFormat {
   public id: string
   public title: string
   public content: string
